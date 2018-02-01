@@ -12,7 +12,7 @@ zipkin:
     type: mem
 eureka:
   client:
-    registerWithEureka: false
+    registerWithEureka: true
     serviceUrl:
       defaultZone: http://100.70.216.22:8761/eureka/
     fetchRegistry: true
