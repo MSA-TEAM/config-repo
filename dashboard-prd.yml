@@ -1,0 +1,23 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: DASHBOARD
+turbine:
+  appConfig: USER,CLIENT
+  clusterNameExpression: "'default'"
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://ip-172-31-13-153.ap-northeast-2.compute.internal:8761/eureka/
+  instance:
+    preferIpAddress: false
+    instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+endpoints:
+  shutdown:
+    enabled: true
+    sensitive: false
+logging:
+  config: classpath:logback-prd.xml
