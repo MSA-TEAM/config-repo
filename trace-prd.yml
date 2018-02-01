@@ -14,7 +14,7 @@ eureka:
   client:
     registerWithEureka: false
     serviceUrl:
-      defaultZone: http://ip-172-31-13-153.ap-northeast-2.compute.internal:8761/eureka/
+      defaultZone: http://100.70.216.22:8761/eureka/
     fetchRegistry: true
     registry-fetch-interval-seconds: 5
   instance:
