@@ -1,0 +1,55 @@
+server:
+  port: 9090
+spring:
+  application:
+    name: APIGW
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+    multipart:
+      max-file-size: 1024MB
+      max-request-size: 1024MB
+zuul:
+  debug:
+    include-debug-header: true
+    request: true
+  routes:
+    api:
+      path: /api/**
+      serviceId: API
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://10.220.171.227:8761/reg1/eureka/,http://10.220.171.233:8761/reg2/eureka/
+  instance:
+    preferIpAddress: true
+    statusPageUrlPath: ${management.context-path}/info
+    healthCheckUrlPath: ${management.context-path}/health
+    instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 120000
+ribbon:
+  ConnectTimeout: 3000
+  ReadTimeout: 60000
+security:
+  oauth2:
+    resource:
+      id: GSP
+      loadBalanced: true
+      jwt:
+        keyValue: -----BEGIN PUBLIC KEY-----
+                  MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAse3h8oBH3KzQo/2bm2d0
+                  R1o1GZfCsxvlAWFrXYf/IBQ4ciUuZ9l7Xy1bqFJTU4XfbRcDL2j1YOnBm+35ejSV
+                  UDjDTZYG3A23W/fsSrQJZ4asjbaXDxToYSDyVE/tE2pNsv7sGK3buJLZhKsYzDgt
+                  30b1UQypfSgwj9R3rpAGARG6Mk4DuqXJJRkV3wfTwe/3jSBxfs28rMNcKZB8LWq3
+                  I0EgQkGlxQ09AjcYuWqHlmXf4feHDVSWL8fobaE/mNZ+bBaK6Meb3eNBFJndE/GS
+                  xMJ8Dmsfc/pmX7YiblDWwXj9rGFNaQYBEf7JJsf/CzE19TuhojzavTepfRQV/omZ
+                  2QIDAQAB
+                  -----END PUBLIC KEY-----
+logging:
+  config: classpath:log4j2-prd.xml
