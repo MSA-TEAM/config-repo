@@ -21,7 +21,7 @@ eureka:
   client:
     registerWithEureka: true
     serviceUrl:
-      defaultZone: http://172.17.100.108:30000/
+      defaultZone: http://172.17.100.108:30000/eureka/
     fetchRegistry: true
     registry-fetch-interval-seconds: 5
   instance:
