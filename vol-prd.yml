@@ -17,7 +17,18 @@ spring:
     url: jdbc:postgresql://sport-saas-psql.cf37vedvxld3.ap-northeast-2.rds.amazonaws.com:5432/sportsaas
     username: gms_svm
     password: new1234!
-    
+eureka:
+  client:
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://100.70.216.22:8761/eureka/
+    fetchRegistry: true
+    registry-fetch-interval-seconds: 5
+  instance:
+    preferIpAddress: false
+    instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
 # LOGGING
 #logging.config: classpath:logback/logback-spring.xml  # resource/logback-spring.xml에 위치하여 위치 자동 인식 
 
