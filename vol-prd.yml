@@ -51,7 +51,7 @@ mybatis:
     mapUnderscoreToCamelCase: true
 
 server:
-  port: 8090
+  port: 8080
   context-path: /
   jsp-servlet:
     init-parameters:
