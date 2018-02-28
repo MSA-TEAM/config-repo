@@ -11,6 +11,11 @@ spring:
     multipart:
       max-file-size: 1024MB
       max-request-size: 1024MB
+  zipkin:
+    baseUrl: http://msa-trace.development.svc.cluster.local:9411
+  sleuth:
+    sampler:
+      percentage: 0.2
 zuul:
   debug:
     include-debug-header: true
