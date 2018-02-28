@@ -14,7 +14,7 @@ eureka:
   client:
     registerWithEureka: true
     serviceUrl:
-      defaultZone: http://msa-apireg.development.svc.cluster.local:8761/eureka/
+      defaultZone: http://apireg-0.msa-apireg.development.svc.cluster.local:8761/eureka/,http://apireg-1.msa-apireg.development.svc.cluster.local:8761/eureka/
     fetchRegistry: true
     registry-fetch-interval-seconds: 5
   instance:
