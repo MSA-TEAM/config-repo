@@ -19,6 +19,9 @@ zuul:
     api:
       path: /api/**
       serviceId: API
+    oauth:
+      path: /oauth/**
+      serviceId: OAUTH
 eureka:
   client:
     registerWithEureka: true
